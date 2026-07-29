@@ -1,89 +1,100 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import type { ExperienceLevel } from "@/lib/store";
+import { CrossStitchCorner, CornerCross } from "./CrossStitchOrnament";
+import { PixelHeart } from "./PixelArt";
 
-const levels: { id: ExperienceLevel; title: string; desc: string }[] = [
-  { id: "beginner", title: "Complete beginner", desc: "I've never studied Georgian" },
-  { id: "alphabet", title: "I know the alphabet", desc: "I can read Mkhedruli letters" },
-  { id: "some_words", title: "I know some words", desc: "I can say basic phrases" },
-  { id: "basic_conversations", title: "I can have basic conversations", desc: "I can introduce myself and ask simple questions" },
+interface Props {
+  onContinue: (level: ExperienceLevel) => void;
+}
+
+const levels = [
+  {
+    id: "beginner" as ExperienceLevel,
+    label: "New to Georgian",
+    sub: "(Beginner)",
+    icon: <PixelHeart size={20} color="#D23F5A" />,
+  },
+  {
+    id: "alphabet" as ExperienceLevel,
+    label: "Some Basics",
+    sub: "(Intermediate)",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <rect x="2" y="4" width="16" height="12" rx="2" stroke="#6DA8FD" strokeWidth="2"/>
+        <path d="M6 8h8M6 12h5" stroke="#6DA8FD" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: "some_words" as ExperienceLevel,
+    label: "I'm Comfortable",
+    sub: "(Advanced)",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <polygon points="10,1 12.5,7 19,7.5 14,12 15.5,18.5 10,15 4.5,18.5 6,12 1,7.5 7.5,7" fill="#D7A623"/>
+      </svg>
+    ),
+  },
 ];
 
-export default function ExperienceLevelScreen({
-  onContinue,
-}: {
-  onContinue: (level: ExperienceLevel) => void;
-}) {
+export default function ExperienceLevelScreen({ onContinue }: Props) {
   const [selected, setSelected] = useState<ExperienceLevel | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col px-screen pt-16 pb-8">
-      <motion.h1
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-3xl font-bold text-ink mb-2"
-      >
-        Your level
-      </motion.h1>
-      <p className="text-text-secondary mb-8">How much Georgian do you know?</p>
+    <div className="min-h-screen bg-cream relative flex flex-col px-6 py-12">
+      <CornerCross position="tl" />
+      <CornerCross position="tr" />
+      <div className="absolute top-3 right-3">
+        <CrossStitchCorner />
+      </div>
+
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-7 h-7 rounded-full bg-rose flex items-center justify-center">
+          <span className="font-pixel text-[8px] text-white">2</span>
+        </div>
+        <h2 className="font-pixel text-[11px] text-ink uppercase tracking-wider">
+          YOUR EXPERIENCE
+        </h2>
+      </div>
+
+      <p className="text-ink/60 text-sm mb-6">Choose your experience level</p>
 
       <div className="space-y-3 flex-1">
-        {levels.map((level, i) => (
-          <motion.button
+        {levels.map((level) => (
+          <button
             key={level.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1 }}
             onClick={() => setSelected(level.id)}
-            className={`w-full text-left p-4 rounded-card border-2 transition-all min-h-tap ${
+            className={`card w-full flex items-center gap-4 transition-all ${
               selected === level.id
-                ? "border-rose bg-rose/5"
-                : "border-gray-200 bg-white"
+                ? "border-rose ring-1 ring-rose/30"
+                : "border-card-border"
             }`}
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium text-ink">{level.title}</p>
-                <p className="text-sm text-text-secondary mt-0.5">{level.desc}</p>
-              </div>
-              {selected === level.id && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="w-6 h-6 bg-rose rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 ml-3"
-                >
-                  ✓
-                </motion.span>
-              )}
+            <div className="w-10 h-10 rounded-lg bg-cream flex items-center justify-center">
+              {level.icon}
             </div>
-          </motion.button>
+            <div className="text-left flex-1">
+              <p className="font-semibold text-ink">{level.label}</p>
+              <p className="text-xs text-ink/40">{level.sub}</p>
+            </div>
+            {selected === level.id && (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="#7DBE9F">
+                <circle cx="10" cy="10" r="10"/>
+                <path d="M6 10l3 3 5-5" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              </svg>
+            )}
+          </button>
         ))}
-
-        {selected && selected !== "beginner" && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            className="bg-sky/10 border border-sky/30 rounded-card p-4 mt-4"
-          >
-            <p className="text-sm text-ink">
-              📋 Placement path coming next
-            </p>
-          </motion.div>
-        )}
       </div>
 
       <button
-        disabled={!selected}
         onClick={() => selected && onContinue(selected)}
-        className={`w-full h-btn rounded-card font-semibold text-lg transition-all ${
-          selected
-            ? "bg-rose text-white hover:bg-rose-light"
-            : "bg-gray-200 text-text-muted cursor-not-allowed"
-        }`}
+        disabled={!selected}
+        className={`btn-primary mt-8 ${!selected ? "opacity-40" : ""}`}
       >
-        Continue
+        CONTINUE <span>→</span>
       </button>
     </div>
   );

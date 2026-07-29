@@ -1,78 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { CrossStitchCorner, CornerCross } from "./CrossStitchOrnament";
+import { PixelFlower } from "./PixelArt";
 
-type GrowthStage = "soil" | "seed" | "sprout" | "leaf" | "label";
+interface GardenRewardProps {
+  onDone: () => void;
+}
 
-const stages: GrowthStage[] = ["soil", "seed", "sprout", "leaf", "label"];
-
-const stageEmoji: Record<GrowthStage, string> = {
-  soil: "🟤",
-  seed: "🌰",
-  sprout: "🌱",
-  leaf: "🌿",
-  label: "🪴",
-};
-
-export default function GardenReward({ onDone }: { onDone: () => void }) {
-  const [currentStage, setCurrentStage] = useState(0);
-  const [showLabel, setShowLabel] = useState(false);
-
-  useEffect(() => {
-    const timers: NodeJS.Timeout[] = [];
-    stages.forEach((_, i) => {
-      if (i > 0) {
-        timers.push(setTimeout(() => setCurrentStage(i), i * 800));
-      }
-    });
-    timers.push(setTimeout(() => setShowLabel(true), stages.length * 800));
-    return () => timers.forEach(clearTimeout);
-  }, []);
-
+export default function GardenReward({ onDone }: GardenRewardProps) {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-screen bg-cream">
-      {/* Growth animation */}
-      <div className="relative w-32 h-48 flex items-end justify-center mb-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={stages[currentStage]}
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="text-7xl"
-          >
-            {stageEmoji[stages[currentStage]]}
-          </motion.div>
-        </AnimatePresence>
+    <div className="min-h-screen bg-cream relative flex flex-col items-center justify-center px-6">
+      <CornerCross position="tl" />
+      <CornerCross position="tr" />
+      <CornerCross position="bl" />
+      <CornerCross position="br" />
+      <div className="absolute top-3 right-3">
+        <CrossStitchCorner />
       </div>
 
-      {/* Label */}
-      <AnimatePresence>
-        {showLabel && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-4"
-          >
-            <p className="text-2xl font-bold text-ink mb-2">ა — ani</p>
-            <p className="text-mint font-medium">Planted in your garden!</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="w-24 h-24 rounded-full bg-mint/10 flex items-center justify-center">
+            <PixelFlower size={60} />
+          </div>
+        </div>
 
-      {showLabel && (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          onClick={onDone}
-          className="w-full h-btn bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose-light transition-colors mt-8"
-        >
-          Done
-        </motion.button>
-      )}
+        <h2 className="font-pixel text-[13px] text-ink tracking-wider mb-3">
+          LESSON COMPLETE!
+        </h2>
+        <p className="text-ink/60 text-sm mb-2">
+          You earned a new flower for your garden 🌸
+        </p>
+        <p className="text-gold font-semibold text-lg mb-8">+1 Garden Reward</p>
+
+        <button onClick={onDone} className="btn-primary max-w-xs mx-auto">
+          CONTINUE <span>→</span>
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,19 +1,105 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-rose: #D23F5A;
+  --color-rose-light: #E8687D;
+  --color-mint: #7DBE9F;
+  --color-sky: #6DA8FD;
+  --color-cream: #FFF4E3;
+  --color-ink: #2A2A2A;
+  --color-slate: #9ABF98;
+  --color-card-bg: #FEFCF7;
+  --color-card-border: #E5DFD3;
+  --color-gold: #D7A623;
+  --color-purple: #8A5CF6;
+
+  --font-pixel: "Press Start 2P", monospace;
+  --font-body: "Inter", system-ui, sans-serif;
+}
 
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background-color: #FEFCF8;
-  color: #1A1A1A;
-  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #FFF4E3;
+  color: #2A2A2A;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.font-pixel {
+  font-family: "Press Start 2P", monospace;
+}
+
+.phone-frame {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  background-color: #FFF4E3;
+}
+
+/* Pixel font section label */
+.section-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #D23F5A;
+}
+
+/* Primary CTA button */
+.btn-primary {
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #D23F5A;
+  color: white;
+  border-radius: 8px;
+  padding: 14px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 3px 0 #A83248, 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.15s;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #A83248;
+}
+
+/* Card style */
+.card {
+  background-color: #FEFCF7;
+  border: 1px solid #E5DFD3;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #D23F5A;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 @layer utilities {
-  .phone-frame {
-    @apply w-full max-w-[430px] mx-auto min-h-screen relative;
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
 }
