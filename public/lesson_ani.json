@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_01_ani",
+  "title": { "en": "First Letter: ა", "de": "Erster Buchstabe: ა" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ა",
+    "name": "ani",
+    "ipa": "ɑ",
+    "transliteration": "a",
+    "phonetic_en": "ah",
+    "phonetic_de": "a",
+    "mnemonic": { "en": "Open mouth — \"ah\"", "de": "Offener Mund — „ah\"" }
+  },
+  "exercises": [
+    {
+      "id": "ani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ა", "de": "Lerne den Buchstaben ა kennen" },
+      "answer": "ა", "audioAsset": "vox_alpha_01_ani_natural", "imageAsset": "alpha_01_ani_display",
+      "hint": { "en": "Open your mouth and say ah.", "de": "Öffne den Mund und sag „ah\"." },
+      "successFeedback": { "en": "This is ani.", "de": "Das ist ani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "ani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ა", "imageAsset": "alpha_01_ani_stroke_guide", "strokePathAsset": "alpha_01_ani_stroke_path",
+      "hint": { "en": "Start at the top and follow the curve.", "de": "Beginne oben und folge der Rundung." },
+      "successFeedback": { "en": "Beautifully traced.", "de": "Wunderschön nachgezeichnet." },
+      "retryFeedback": { "en": "Almost. Follow the guide slowly.", "de": "Fast. Folge der Vorlage langsam." }
+    },
+    {
+      "id": "ani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ა", "alternatives": ["ა", "ბ", "გ"], "audioAsset": "vox_alpha_01_ani_natural",
+      "successFeedback": { "en": "Correct — ა.", "de": "Richtig — ა." },
+      "retryFeedback": { "en": "That was ა. Listen to the open ah sound.", "de": "Das war ა. Achte auf den offenen Ah-Laut." }
+    },
+    {
+      "id": "ani_speak", "type": "speaking",
+      "prompt": { "en": "Say ა", "de": "Sprich ა" },
+      "answer": "ა", "audioAsset": "vox_alpha_01_ani_slow", "skipAllowed": true,
+      "hint": { "en": "Keep the sound open and relaxed.", "de": "Halte den Laut offen und entspannt." },
+      "successFeedback": { "en": "That sounded clear.", "de": "Das klang deutlich." },
+      "retryFeedback": { "en": "Try again with an open ah sound.", "de": "Versuch es noch einmal mit einem offenen Ah-Laut." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "A script you see everywhere", "de": "Eine Schrift, die man überall sieht" },
+    "body": { "en": "In Tbilisi, Mkhedruli appears on metro signs, shopfronts, menus and handwritten notes.", "de": "In Tiflis begegnet dir Mchedruli auf Metroschildern, Ladenfronten, Speisekarten und handgeschriebenen Notizen." },
+    "imageAsset": "env_tbilisi_street_signs_day"
+  },
+  "completionMessage": { "en": "You learned your first Georgian letter.", "de": "Du hast deinen ersten georgischen Buchstaben gelernt." },
+  "gardenReward": { "id": "garden_ani_sprout", "label": "ა — ani", "asset": "garden_alpha_01_ani_sprout" }
+}

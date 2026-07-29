@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #FEFCF8;
+  color: #1A1A1A;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+  .phone-frame {
+    @apply w-full max-w-[430px] mx-auto min-h-screen relative;
+  }
+}
