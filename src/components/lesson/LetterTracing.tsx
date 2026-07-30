@@ -103,9 +103,9 @@ export default function LetterTracing({
   };
 
   return (
-    <div className="flex-1 flex flex-col items-center px-screen pb-8 pt-4">
+    <div className="flex-1 flex flex-col items-center px-5 pb-8 pt-4">
       <h2 className="text-xl font-bold text-ink mb-2">Trace the letter</h2>
-      <p className="text-text-secondary text-sm mb-4">Follow the shape with your finger</p>
+      <p className="text-ink/60 text-sm mb-4">Follow the shape with your finger</p>
 
       <div className="relative w-full aspect-square max-w-[300px] mb-4">
         <canvas
@@ -149,13 +149,12 @@ export default function LetterTracing({
               animate={{ opacity: 1, scale: 1 }}
               className="absolute inset-0 bg-mint/20 rounded-card flex items-center justify-center"
             >
-              <motion.span
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="text-5xl"
               >
-                ✓
-              </motion.span>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#2A2A2A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -171,20 +170,20 @@ export default function LetterTracing({
             style={{ width: `${coverage}%` }}
           />
         </div>
-        <p className="text-xs text-text-muted mt-1 text-center">{Math.round(coverage)}% coverage</p>
+        <p className="text-xs text-ink/40 mt-1 text-center">{Math.round(coverage)}% coverage</p>
       </div>
 
       {/* Controls */}
       <div className="flex gap-3 mb-6">
         <button
           onClick={reset}
-          className="px-4 py-2 rounded-card border border-gray-200 text-text-secondary text-sm min-h-tap"
+          className="px-4 py-2 rounded-card border border-gray-200 text-ink/60 text-sm min-h-[44px]"
         >
           Reset
         </button>
         <button
           onClick={replay}
-          className="px-4 py-2 rounded-card border border-gray-200 text-text-secondary text-sm min-h-tap"
+          className="px-4 py-2 rounded-card border border-gray-200 text-ink/60 text-sm min-h-[44px]"
         >
           Replay
         </button>
@@ -193,10 +192,10 @@ export default function LetterTracing({
       <button
         disabled={!completed}
         onClick={onComplete}
-        className={`w-full h-btn rounded-card font-semibold text-lg transition-all ${
+        className={`w-full h-[52px] rounded-card font-semibold text-lg transition-all ${
           completed
-            ? "bg-rose text-white hover:bg-rose-light"
-            : "bg-gray-200 text-text-muted cursor-not-allowed"
+            ? "bg-rose text-white hover:bg-rose/80"
+            : "bg-gray-200 text-ink/40 cursor-not-allowed"
         }`}
       >
         Continue

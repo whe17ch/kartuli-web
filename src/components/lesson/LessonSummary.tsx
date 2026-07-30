@@ -37,7 +37,7 @@ export default function LessonSummary({
   onContinue: () => void;
 }) {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-screen pb-8 relative">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8 relative">
       <Cross className="top-6 left-6" />
       <Cross className="top-6 right-6" />
       <Cross className="bottom-6 left-6" />
@@ -49,7 +49,7 @@ export default function LessonSummary({
         animate={{ opacity: 1, scale: 1 }}
         className="w-20 h-28 rounded-card bg-rose/20 flex items-center justify-center mb-4"
       >
-        <span className="text-rose text-sm">🎉 Nino</span>
+        <span className="text-rose text-sm font-semibold">Nino</span>
       </motion.div>
 
       {/* Letter + name */}
@@ -65,7 +65,7 @@ export default function LessonSummary({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-xl font-semibold text-text-secondary mb-4"
+        className="text-xl font-semibold text-ink/60 mb-4"
       >
         {name}
       </motion.p>
@@ -97,10 +97,10 @@ export default function LessonSummary({
                   isCompleted ? "bg-mint" : "bg-gray-200"
                 }`}
               >
-                {isCompleted && <span className="text-white text-sm">✓</span>}
-                {isSkipped && <span className="text-text-muted text-xs">—</span>}
+                {isCompleted && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>}
+                {isSkipped && <span className="text-ink/40 text-xs">—</span>}
               </div>
-              <span className={`text-sm ${isCompleted ? "text-ink" : "text-text-muted"}`}>
+              <span className={`text-sm ${isCompleted ? "text-ink" : "text-ink/40"}`}>
                 {activity.label}
               </span>
             </motion.div>
@@ -110,7 +110,7 @@ export default function LessonSummary({
 
       <button
         onClick={onContinue}
-        className="w-full h-btn bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose-light transition-colors"
+        className="w-full h-[52px] bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose/80 transition-colors"
       >
         Continue to garden
       </button>

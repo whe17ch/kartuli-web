@@ -16,7 +16,7 @@ export default function ProfileScreen({ onBack }: { onBack: () => void }) {
         <NinoAvatar size={64} />
       </div>
       <h2 className="font-pixel text-[11px] text-ink tracking-wider mb-2">PROFILE</h2>
-      <p className="text-ink/50 text-sm text-center">Coming next — stay tuned! 🌱</p>
+      <p className="text-ink/50 text-sm text-center">Coming next — stay tuned!</p>
     </div>
   );
 }

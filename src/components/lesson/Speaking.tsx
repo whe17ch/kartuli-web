@@ -48,9 +48,9 @@ export default function Speaking({
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-screen pb-8">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8">
       <h2 className="text-xl font-bold text-ink mb-2">{prompt}</h2>
-      <p className="text-text-secondary text-sm mb-12">
+      <p className="text-ink/60 text-sm mb-12">
         {lang === "de" ? "Drücke den Knopf und sprich" : "Press the button and speak"}
       </p>
 
@@ -63,17 +63,19 @@ export default function Speaking({
           state === "success"
             ? "bg-mint"
             : state === "listening"
-              ? "bg-rose-light"
-              : "bg-rose hover:bg-rose-light"
+              ? "bg-rose/80"
+              : "bg-rose hover:bg-rose/80"
         }`}
       >
-        <span className="text-white text-3xl">
-          {state === "success" ? "✓" : "🎤"}
-        </span>
+        {state === "success" ? (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        ) : (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><rect x="9" y="1" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0" fill="none" stroke="white" strokeWidth="2"/><line x1="12" y1="17" x2="12" y2="21" stroke="white" strokeWidth="2"/></svg>
+        )}
       </motion.button>
 
       {/* State label */}
-      <p className="text-sm text-text-secondary mb-8 h-5">
+      <p className="text-sm text-ink/60 mb-8 h-5">
         {state === "listening" && (
           <motion.span
             initial={{ opacity: 0 }}
@@ -97,7 +99,7 @@ export default function Speaking({
       {state !== "success" && (
         <button
           onClick={onSkip}
-          className="text-sm text-text-muted mb-8 min-h-tap flex items-center"
+          className="text-sm text-ink/40 mb-8 min-h-[44px] flex items-center"
         >
           {lang === "de" ? "Ich kann gerade nicht sprechen" : "I can't speak right now"}
         </button>
@@ -106,10 +108,10 @@ export default function Speaking({
       <button
         disabled={state !== "success"}
         onClick={onComplete}
-        className={`w-full h-btn rounded-card font-semibold text-lg transition-all ${
+        className={`w-full h-[52px] rounded-card font-semibold text-lg transition-all ${
           state === "success"
-            ? "bg-rose text-white hover:bg-rose-light"
-            : "bg-gray-200 text-text-muted cursor-not-allowed"
+            ? "bg-rose text-white hover:bg-rose/80"
+            : "bg-gray-200 text-ink/40 cursor-not-allowed"
         }`}
       >
         Continue

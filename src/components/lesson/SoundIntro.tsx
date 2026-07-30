@@ -24,7 +24,7 @@ export default function SoundIntro({
   const mnemonic = lang === "de" ? letter.mnemonic.de : letter.mnemonic.en;
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-screen pb-8">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +46,7 @@ export default function SoundIntro({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="flex items-center gap-3 text-text-secondary mb-6"
+        className="flex items-center gap-3 text-ink/60 mb-6"
       >
         <span>/{letter.ipa}/</span>
         <span>•</span>
@@ -65,21 +65,21 @@ export default function SoundIntro({
           // Placeholder: would play audio
         }}
       >
-        <span className="text-white text-2xl ml-1">▶</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21"/></svg>
       </motion.button>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-center text-text-secondary mb-12"
+        className="text-center text-ink/60 mb-12"
       >
         {mnemonic}
       </motion.p>
 
       <button
         onClick={onContinue}
-        className="w-full h-btn bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose-light transition-colors"
+        className="w-full h-[52px] bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose/80 transition-colors"
       >
         Continue
       </button>

@@ -51,7 +51,7 @@ export default function ListenChoose({
   };
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-screen pb-8">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8">
       <h2 className="text-xl font-bold text-ink mb-2">
         {lang === "de" ? "Welchen Buchstaben hast du gehört?" : "Which letter did you hear?"}
       </h2>
@@ -61,7 +61,7 @@ export default function ListenChoose({
         className="w-16 h-16 rounded-full bg-sky flex items-center justify-center mb-8 hover:bg-sky/80 transition-colors"
         onClick={() => {/* play audio */}}
       >
-        <span className="text-white text-2xl ml-1">▶</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21"/></svg>
       </button>
 
       {/* Letter tiles */}
@@ -106,10 +106,10 @@ export default function ListenChoose({
       <button
         disabled={!isCorrect}
         onClick={onComplete}
-        className={`w-full h-btn rounded-card font-semibold text-lg transition-all ${
+        className={`w-full h-[52px] rounded-card font-semibold text-lg transition-all ${
           isCorrect
-            ? "bg-rose text-white hover:bg-rose-light"
-            : "bg-gray-200 text-text-muted cursor-not-allowed"
+            ? "bg-rose text-white hover:bg-rose/80"
+            : "bg-gray-200 text-ink/40 cursor-not-allowed"
         }`}
       >
         Continue

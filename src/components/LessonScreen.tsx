@@ -37,7 +37,7 @@ export default function LessonScreen({ onClose, onComplete }: LessonScreenProps)
       {/* Progress */}
       <div className="px-5 mb-3">
         <div className="flex items-center gap-2 mb-1.5">
-          <span className="text-rose text-sm">❤️</span>
+          <PixelHeart size={14} color="#D23F5A" />
           <span className="text-xs text-ink/60">{step} / {totalSteps}</span>
         </div>
         <div className="progress-bar">
@@ -92,7 +92,7 @@ export default function LessonScreen({ onClose, onComplete }: LessonScreenProps)
       <div className="px-5 mb-4">
         <div className="card">
           <div className="flex items-center gap-2 mb-2">
-            <span>✨</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D23F5A" strokeWidth="2"><polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9"/></svg>
             <p className="font-semibold text-sm text-ink">Practice pronunciation</p>
           </div>
           <p className="text-xs text-ink/50 mb-4">Tap the mic and say it out loud.</p>
@@ -115,7 +115,7 @@ export default function LessonScreen({ onClose, onComplete }: LessonScreenProps)
               ))}
             </div>
 
-            <p className="text-sm text-ink/50 mt-3">You&apos;ve got this! 💚</p>
+            <p className="text-sm text-ink/50 mt-3">You&apos;ve got this!</p>
           </div>
         </div>
       </div>

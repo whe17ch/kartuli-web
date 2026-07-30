@@ -7,10 +7,12 @@ import type { AppState } from "@/lib/store";
 interface HomeProps {
   state: AppState;
   onStartLesson: () => void;
+  onOpenGarden?: () => void;
 }
 
-export default function HomeScreen({ state, onStartLesson }: HomeProps) {
-  const streak = state.streak || 47;
+export default function HomeScreen({ state, onStartLesson, onOpenGarden }: HomeProps) {
+  const streak = state.streak;
+  const isLessonComplete = state.gardenItems.some((g) => g.id === "alphabet_01_ani");
 
   // Week tracker data
   const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
@@ -67,16 +69,35 @@ export default function HomeScreen({ state, onStartLesson }: HomeProps) {
 
         {/* Continue Lesson */}
         <div>
-          <p className="section-label mb-2">CONTINUE LESSON</p>
+          <p className="section-label mb-2">{isLessonComplete ? "LESSON COMPLETE" : "CONTINUE LESSON"}</p>
           <div className="card">
             <p className="text-sm text-ink font-medium mb-3">
-              Lesson 12 • Greetings & Introductions
+              Lesson 1 • The letter Ani
             </p>
             <button onClick={onStartLesson} className="btn-primary">
-              CONTINUE <span className="ml-1">→</span>
+              {isLessonComplete ? "REVIEW" : "CONTINUE"} <span className="ml-1">→</span>
             </button>
           </div>
         </div>
+
+        {/* Word Garden */}
+        {state.gardenItems.length > 0 && onOpenGarden && (
+          <div>
+            <p className="section-label mb-2">WORD GARDEN</p>
+            <div className="card flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22V12" stroke="#7DBE9F" strokeWidth="2" strokeLinecap="round"/><path d="M8 12c0-4 4-8 4-8s4 4 4 8" fill="#7DBE9F"/></svg>
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-medium text-ink">{state.gardenItems.length} plant{state.gardenItems.length !== 1 ? "s" : ""} growing</p>
+                <p className="text-xs text-ink/50">View your collection</p>
+              </div>
+              <button onClick={onOpenGarden} className="text-rose font-pixel text-[8px] uppercase tracking-wider flex items-center gap-1">
+                Open <span>→</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Today's Word */}
         <div>

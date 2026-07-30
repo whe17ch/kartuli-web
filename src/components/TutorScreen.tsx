@@ -57,7 +57,7 @@ export default function TutorScreen({ onBack }: TutorScreenProps) {
           <span className="font-pixel text-[8px] text-ink/40 ml-1">/ TANDEM</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-sm">🔥 7</span>
+          <span className="text-sm flex items-center gap-0.5"><svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="flame1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stopColor="#FF6B35"/><stop offset="100%" stopColor="#FF4444"/></linearGradient></defs><path d="M12 2C8 7 4 10 4 14a8 8 0 0016 0c0-4-4-7-8-12z" fill="url(#flame1)"/></svg> 7</span>
           <div className="w-7 h-7 rounded-full bg-card-bg border border-card-border overflow-hidden flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2">
               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -194,20 +194,20 @@ export default function TutorScreen({ onBack }: TutorScreenProps) {
         <div className="card">
           <div className="grid grid-cols-3 gap-2 text-center mb-3">
             <div>
-              <p className="text-lg font-bold text-ink">🔥 7</p>
+              <p className="text-lg font-bold text-ink flex items-center justify-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24"><defs><linearGradient id="flame2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stopColor="#FF6B35"/><stop offset="100%" stopColor="#FF4444"/></linearGradient></defs><path d="M12 2C8 7 4 10 4 14a8 8 0 0016 0c0-4-4-7-8-12z" fill="url(#flame2)"/></svg> 7</p>
               <p className="text-[9px] text-ink/40">Day Streak</p>
             </div>
             <div>
-              <p className="text-lg font-bold text-ink">📚 28</p>
+              <p className="text-lg font-bold text-ink flex items-center justify-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> 28</p>
               <p className="text-[9px] text-ink/40">Lessons</p>
             </div>
             <div>
-              <p className="text-lg font-bold text-ink">✅ 82%</p>
+              <p className="text-lg font-bold text-ink flex items-center justify-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="#7DBE9F"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/></svg> 82%</p>
               <p className="text-[9px] text-ink/40">Accuracy</p>
             </div>
           </div>
           <p className="text-center text-xs text-ink/50">
-            Consistency is your superpower. ❤️
+            Consistency is your superpower.
           </p>
         </div>
       </div>

@@ -76,7 +76,7 @@ export default function LessonFlow({
   if (!lesson) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-text-muted">Loading lesson...</div>
+        <div className="animate-pulse text-ink/40">Loading lesson...</div>
       </div>
     );
   }
@@ -84,12 +84,12 @@ export default function LessonFlow({
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       {/* Progress bar */}
-      <div className="flex items-center px-screen pt-4 gap-3">
+      <div className="flex items-center px-5 pt-4 gap-3">
         <button
           onClick={onClose}
-          className="w-8 h-8 flex items-center justify-center text-text-secondary text-xl min-w-tap min-h-tap"
+          className="w-8 h-8 flex items-center justify-center text-ink/60 text-xl min-w-[44px] min-h-[44px]"
         >
-          ✕
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div

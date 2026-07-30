@@ -7,11 +7,12 @@ import SourceLanguageScreen from "@/components/SourceLanguage";
 import ExperienceLevelScreen from "@/components/ExperienceLevel";
 import DailyGoalScreen from "@/components/DailyGoal";
 import HomeScreen from "@/components/Home";
-import LessonScreen from "@/components/LessonScreen";
+import LessonFlow from "@/components/LessonFlow";
 import AlphabetScreen from "@/components/AlphabetScreen";
 import CultureScreen from "@/components/CultureScreen";
 import TutorScreen from "@/components/TutorScreen";
 import ProfileScreen from "@/components/ProfileScreen";
+import WordGarden from "@/components/WordGarden";
 import GardenReward from "@/components/GardenReward";
 import BottomNav from "@/components/BottomNav";
 
@@ -26,7 +27,8 @@ type Screen =
   | "culture"
   | "tutor"
   | "profile"
-  | "garden_reward";
+  | "garden_reward"
+  | "word_garden";
 
 type Tab = "home" | "learn" | "tandem" | "culture" | "profile";
 
@@ -62,7 +64,7 @@ export default function Page() {
 
   if (!state) return null;
 
-  const showBottomNav = ["home", "alphabet", "culture", "tutor", "profile"].includes(screen);
+  const showBottomNav = ["home", "alphabet", "culture", "tutor", "profile", "word_garden"].includes(screen);
 
   return (
     <div className="phone-frame bg-cream">
@@ -102,10 +104,11 @@ export default function Page() {
           <HomeScreen
             state={state}
             onStartLesson={() => setScreen("lesson")}
+            onOpenGarden={() => setScreen("word_garden")}
           />
         )}
         {screen === "lesson" && (
-          <LessonScreen
+          <LessonFlow
             onClose={() => {
               refresh();
               setScreen("home");
@@ -127,6 +130,20 @@ export default function Page() {
         )}
         {screen === "profile" && (
           <ProfileScreen onBack={() => { setActiveTab("home"); setScreen("home"); }} />
+        )}
+        {screen === "word_garden" && (
+          <div className="min-h-screen bg-cream">
+            <div className="flex items-center justify-between px-4 pt-12 pb-2">
+              <button onClick={() => { setActiveTab("home"); setScreen("home"); }} className="p-2 text-ink">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <span className="font-pixel text-[11px] text-ink tracking-wider">WORD GARDEN</span>
+              <div className="w-6" />
+            </div>
+            <WordGarden items={state.gardenItems} />
+          </div>
         )}
         {screen === "garden_reward" && (
           <GardenReward

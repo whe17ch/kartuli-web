@@ -14,7 +14,7 @@ export default function LessonIntro({
   onStart: () => void;
 }) {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-screen pb-8">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 pb-8">
       {/* Nino placeholder */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -37,7 +37,7 @@ export default function LessonIntro({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-text-secondary mb-8"
+        className="text-ink/60 mb-8"
       >
         ~{minutes} minutes
       </motion.p>
@@ -56,7 +56,7 @@ export default function LessonIntro({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
         onClick={onStart}
-        className="w-full h-btn bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose-light transition-colors"
+        className="w-full h-[52px] bg-rose text-white font-semibold rounded-card text-lg hover:bg-rose/80 transition-colors"
       >
         Start
       </motion.button>

@@ -29,7 +29,7 @@ export default function GardenReward({ onDone }: GardenRewardProps) {
           LESSON COMPLETE!
         </h2>
         <p className="text-ink/60 text-sm mb-2">
-          You earned a new flower for your garden 🌸
+          You earned a new flower for your garden
         </p>
         <p className="text-gold font-semibold text-lg mb-8">+1 Garden Reward</p>
 

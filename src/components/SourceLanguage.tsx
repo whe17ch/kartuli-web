@@ -12,8 +12,8 @@ export default function SourceLanguageScreen({ onContinue }: Props) {
   const [selected, setSelected] = useState<SourceLanguage>("en");
 
   const languages = [
-    { id: "en" as SourceLanguage, label: "English", flag: "🇬🇧" },
-    { id: "de" as SourceLanguage, label: "Deutsch", flag: "🇩🇪" },
+    { id: "en" as SourceLanguage, label: "English", flag: "EN" },
+    { id: "de" as SourceLanguage, label: "Deutsch", flag: "DE" },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function SourceLanguageScreen({ onContinue }: Props) {
                 : "border-card-border"
             }`}
           >
-            <span className="text-2xl">{lang.flag}</span>
+            <span className="text-sm font-bold text-ink bg-cream border border-card-border rounded px-1.5 py-0.5">{lang.flag}</span>
             <span className="font-semibold text-ink flex-1 text-left">{lang.label}</span>
             {selected === lang.id && (
               <svg width="20" height="20" viewBox="0 0 20 20" fill="#7DBE9F">

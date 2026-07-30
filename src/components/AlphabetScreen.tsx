@@ -144,7 +144,7 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
       {/* Tip box */}
       <div className="px-5 mb-4">
         <div className="bg-rose/5 border border-rose/10 rounded-xl px-4 py-3 flex items-start gap-2">
-          <span className="text-rose text-sm">💡</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D23F5A" strokeWidth="2" className="flex-shrink-0"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg>
           <p className="text-xs text-ink/70">
             <span className="font-semibold text-ink">Tip:</span> Start at the top, curve down and around.
           </p>

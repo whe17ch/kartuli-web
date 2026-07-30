@@ -27,6 +27,21 @@ const config: Config = {
       borderRadius: {
         card: "12px",
       },
+      spacing: {
+        screen: "20px",
+        btn: "52px",
+        tap: "44px",
+      },
+      height: {
+        btn: "52px",
+        tap: "44px",
+      },
+      minHeight: {
+        tap: "44px",
+      },
+      padding: {
+        screen: "20px",
+      },
     },
   },
   plugins: [],
