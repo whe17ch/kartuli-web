@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_06_vini",
+  "title": { "en": "Sixth Letter: ვ", "de": "Sechster Buchstabe: ვ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ვ",
+    "name": "vini",
+    "ipa": "v",
+    "transliteration": "v",
+    "phonetic_en": "v as in vine",
+    "phonetic_de": "w wie in Wein",
+    "mnemonic": { "en": "ვ has a curving vine shape — v for vine!", "de": "ვ hat die Form einer Weinrebe — w wie Wein!" }
+  },
+  "exercises": [
+    {
+      "id": "vini_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ვ", "de": "Lerne den Buchstaben ვ kennen" },
+      "answer": "ვ", "audioAsset": "vox_alpha_06_vini_natural", "imageAsset": "alpha_06_vini_display",
+      "hint": { "en": "Say v like in vine.", "de": "Sag w wie in Wein." },
+      "successFeedback": { "en": "This is vini.", "de": "Das ist vini." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "vini_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ვ", "imageAsset": "alpha_06_vini_stroke_guide", "strokePathAsset": "alpha_06_vini_stroke_path",
+      "hint": { "en": "A flowing curve that drops below the line.", "de": "Eine fließende Kurve, die unter die Linie geht." },
+      "successFeedback": { "en": "Smooth curves!", "de": "Fließende Kurven!" },
+      "retryFeedback": { "en": "Try again, let it flow naturally.", "de": "Versuch es nochmal, lass es natürlich fließen." }
+    },
+    {
+      "id": "vini_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ვ", "alternatives": ["ვ", "ბ", "ე"], "audioAsset": "vox_alpha_06_vini_natural",
+      "successFeedback": { "en": "Correct — ვ.", "de": "Richtig — ვ." },
+      "retryFeedback": { "en": "That was ვ. A soft v like in vine.", "de": "Das war ვ. Ein weiches w wie in Wein." }
+    },
+    {
+      "id": "vini_speak", "type": "speaking",
+      "prompt": { "en": "Say ვ", "de": "Sprich ვ" },
+      "answer": "ვ", "audioAsset": "vox_alpha_06_vini_slow", "skipAllowed": true,
+      "hint": { "en": "Touch your upper teeth to your lower lip.", "de": "Berühre mit den oberen Zähnen die Unterlippe." },
+      "successFeedback": { "en": "Perfect v sound!", "de": "Perfekter w-Laut!" },
+      "retryFeedback": { "en": "Try again — v as in vine.", "de": "Versuch es nochmal — w wie in Wein." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Sulphur baths of Abanotubani", "de": "Schwefelbäder von Abanotubani" },
+    "body": { "en": "The Abanotubani district in old Tbilisi is famous for its natural sulphur baths, fed by hot springs beneath the city. The brick-domed bathhouses have welcomed visitors for centuries — even Pushkin and Dumas bathed here.", "de": "Das Viertel Abanotubani in der Altstadt von Tiflis ist berühmt für seine natürlichen Schwefelbäder aus heißen Quellen unter der Stadt. Die Kuppelbäder aus Ziegeln empfangen seit Jahrhunderten Besucher — selbst Puschkin und Dumas badeten hier." },
+    "imageAsset": "env_sulphur_baths"
+  },
+  "completionMessage": { "en": "Six letters! ვ joins your alphabet!", "de": "Sechs Buchstaben! ვ ergänzt dein Alphabet!" },
+  "gardenReward": { "id": "garden_vini_sprout", "label": "ვ — vini", "asset": "garden_alpha_06_vini_sprout" }
+}

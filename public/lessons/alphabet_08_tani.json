@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_08_tani",
+  "title": { "en": "Eighth Letter: თ", "de": "Achter Buchstabe: თ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "თ",
+    "name": "tani",
+    "ipa": "tʰ",
+    "transliteration": "t",
+    "phonetic_en": "t (aspirated)",
+    "phonetic_de": "t (behaucht)",
+    "mnemonic": { "en": "თ looks like a round table — t for table, and blow a puff of air!", "de": "თ sieht aus wie ein runder Tisch — t wie Tisch, mit einem Hauch Luft!" }
+  },
+  "exercises": [
+    {
+      "id": "tani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter თ", "de": "Lerne den Buchstaben თ kennen" },
+      "answer": "თ", "audioAsset": "vox_alpha_08_tani_natural", "imageAsset": "alpha_08_tani_display",
+      "hint": { "en": "Say t with a puff of air.", "de": "Sag t mit einem Lufthauch." },
+      "successFeedback": { "en": "This is tani.", "de": "Das ist tani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "tani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "თ", "imageAsset": "alpha_08_tani_stroke_guide", "strokePathAsset": "alpha_08_tani_stroke_path",
+      "hint": { "en": "Draw a circle with a tail extending down.", "de": "Zeichne einen Kreis mit einem Strich nach unten." },
+      "successFeedback": { "en": "Round and smooth!", "de": "Rund und glatt!" },
+      "retryFeedback": { "en": "Try again, keep the circle round.", "de": "Versuch es nochmal, halte den Kreis rund." }
+    },
+    {
+      "id": "tani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "თ", "alternatives": ["თ", "დ", "ბ"], "audioAsset": "vox_alpha_08_tani_natural",
+      "successFeedback": { "en": "Correct — თ.", "de": "Richtig — თ." },
+      "retryFeedback": { "en": "That was თ. An aspirated t with a puff of air.", "de": "Das war თ. Ein behauchtes t mit Luftstoß." }
+    },
+    {
+      "id": "tani_speak", "type": "speaking",
+      "prompt": { "en": "Say თ", "de": "Sprich თ" },
+      "answer": "თ", "audioAsset": "vox_alpha_08_tani_slow", "skipAllowed": true,
+      "hint": { "en": "Hold your hand in front of your mouth — you should feel the puff.", "de": "Halte die Hand vor den Mund — du solltest den Luftstoß spüren." },
+      "successFeedback": { "en": "Great aspiration!", "de": "Tolle Behauchung!" },
+      "retryFeedback": { "en": "Try again — more air behind the t.", "de": "Versuch es nochmal — mehr Luft hinter dem t." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "The Georgian Supra", "de": "Die georgische Supra" },
+    "body": { "en": "A supra is a traditional Georgian feast led by a tamada (toastmaster). Elaborate toasts are raised to God, country, family, and the departed. The table groans with dishes, and wine flows freely from a drinking horn called a kantsi.", "de": "Eine Supra ist ein traditionelles georgisches Festmahl unter Leitung eines Tamada (Toastmeister). Kunstvolle Trinksprüche werden auf Gott, Vaterland, Familie und Verstorbene ausgebracht. Der Tisch biegt sich unter Gerichten, und Wein fließt aus einem Trinkhorn namens Kantsi." },
+    "imageAsset": "env_georgian_supra"
+  },
+  "completionMessage": { "en": "Eight letters mastered — თ is yours!", "de": "Acht Buchstaben gemeistert — თ gehört dir!" },
+  "gardenReward": { "id": "garden_tani_sprout", "label": "თ — tani", "asset": "garden_alpha_08_tani_sprout" }
+}

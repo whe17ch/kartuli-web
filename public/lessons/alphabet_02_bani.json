@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_02_bani",
+  "title": { "en": "Second Letter: ბ", "de": "Zweiter Buchstabe: ბ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ბ",
+    "name": "bani",
+    "ipa": "b",
+    "transliteration": "b",
+    "phonetic_en": "b as in boy",
+    "phonetic_de": "b wie in Ball",
+    "mnemonic": { "en": "ბ looks like a lowercase b with a curly tail — b for bani!", "de": "ბ sieht aus wie ein kleines b mit Schwung — b wie bani!" }
+  },
+  "exercises": [
+    {
+      "id": "bani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ბ", "de": "Lerne den Buchstaben ბ kennen" },
+      "answer": "ბ", "audioAsset": "vox_alpha_02_bani_natural", "imageAsset": "alpha_02_bani_display",
+      "hint": { "en": "Say b like in boy.", "de": "Sag b wie in Ball." },
+      "successFeedback": { "en": "This is bani.", "de": "Das ist bani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "bani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ბ", "imageAsset": "alpha_02_bani_stroke_guide", "strokePathAsset": "alpha_02_bani_stroke_path",
+      "hint": { "en": "Start at the top, draw down and loop around.", "de": "Beginne oben, ziehe nach unten und mach eine Schlaufe." },
+      "successFeedback": { "en": "Well drawn!", "de": "Gut gezeichnet!" },
+      "retryFeedback": { "en": "Almost. Try following the guide more slowly.", "de": "Fast. Folge der Vorlage langsamer." }
+    },
+    {
+      "id": "bani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ბ", "alternatives": ["ბ", "ა", "გ"], "audioAsset": "vox_alpha_02_bani_natural",
+      "successFeedback": { "en": "Correct — ბ.", "de": "Richtig — ბ." },
+      "retryFeedback": { "en": "That was ბ. It sounds like b in boy.", "de": "Das war ბ. Es klingt wie b in Ball." }
+    },
+    {
+      "id": "bani_speak", "type": "speaking",
+      "prompt": { "en": "Say ბ", "de": "Sprich ბ" },
+      "answer": "ბ", "audioAsset": "vox_alpha_02_bani_slow", "skipAllowed": true,
+      "hint": { "en": "Press your lips together and let the sound pop out.", "de": "Drücke die Lippen zusammen und lass den Laut heraus." },
+      "successFeedback": { "en": "Great pronunciation!", "de": "Tolle Aussprache!" },
+      "retryFeedback": { "en": "Try again — b as in boy.", "de": "Versuch es nochmal — b wie in Ball." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Tonis Puri — Georgian bread", "de": "Tonis Puri — Georgisches Brot" },
+    "body": { "en": "Georgians bake their bread in a deep clay oven called a tone. The dough is slapped onto the inner walls and bakes in minutes. Tonis puri is a staple at every Georgian meal.", "de": "Georgier backen ihr Brot in einem tiefen Lehmofen namens Tone. Der Teig wird an die Innenwände geklebt und backt in wenigen Minuten. Tonis Puri gehört zu jeder georgischen Mahlzeit." },
+    "imageAsset": "env_tonis_puri_bakery"
+  },
+  "completionMessage": { "en": "You've learned ბ — your second Georgian letter!", "de": "Du hast ბ gelernt — deinen zweiten georgischen Buchstaben!" },
+  "gardenReward": { "id": "garden_bani_sprout", "label": "ბ — bani", "asset": "garden_alpha_02_bani_sprout" }
+}

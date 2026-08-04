@@ -1,8 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { CrossStitchCorner, CornerCross } from "./CrossStitchOrnament";
 import { NinoAvatar, PixelVase } from "./PixelArt";
+import { t } from "@/lib/store";
 import type { AppState } from "@/lib/store";
+
+interface LessonIndexEntry {
+  id: string;
+  file: string;
+  letter: string;
+  name: string;
+  title: { en: string; de: string };
+  order: number;
+  requiredCompletions: number;
+}
+
+interface VocabWord {
+  ka: string;
+  tr: string;
+  en: string;
+  de: string;
+}
 
 interface HomeProps {
   state: AppState;
@@ -11,8 +30,47 @@ interface HomeProps {
 }
 
 export default function HomeScreen({ state, onStartLesson, onOpenGarden }: HomeProps) {
+  const [lessonIndex, setLessonIndex] = useState<LessonIndexEntry[]>([]);
+  const [vocab, setVocab] = useState<VocabWord[]>([]);
   const streak = state.streak;
-  const isLessonComplete = state.gardenItems.some((g) => g.id === "alphabet_01_ani");
+  const lang = state.sourceLanguage || "en";
+
+  useEffect(() => {
+    fetch("/lessons/index.json")
+      .then((r) => r.json())
+      .then((data) => setLessonIndex(data.lessons || []))
+      .catch(() => {});
+    fetch("/vocabulary.json")
+      .then((r) => r.json())
+      .then(setVocab)
+      .catch(() => {});
+  }, []);
+
+  // Determine completed lesson IDs from gardenItems
+  const completedGardenIds = new Set(state.gardenItems.map((g) => g.id));
+  const lessonIdToGardenId: Record<string, string> = {
+    alphabet_01_ani: "garden_ani_sprout",
+    alphabet_02_bani: "garden_bani_sprout",
+    alphabet_03_gani: "garden_gani_sprout",
+    alphabet_04_doni: "garden_doni_sprout",
+    alphabet_05_eni: "garden_eni_sprout",
+    alphabet_06_vini: "garden_vini_sprout",
+    alphabet_07_zeni: "garden_zeni_sprout",
+    alphabet_08_tani: "garden_tani_sprout",
+    alphabet_09_ini: "garden_ini_sprout",
+    alphabet_10_kani: "garden_kani_sprout",
+    alphabet_11_lasi: "garden_lasi_sprout",
+    alphabet_12_mani: "garden_mani_sprout",
+  };
+
+  const currentLesson = lessonIndex.find(
+    (l) => !completedGardenIds.has(lessonIdToGardenId[l.id] || l.id)
+  );
+  const allComplete = lessonIndex.length > 0 && !currentLesson;
+
+  // Word of the day
+  const dayIndex = Math.floor(Date.now() / 86400000) % Math.max(vocab.length, 1);
+  const todayWord = vocab[dayIndex];
 
   // Week tracker data
   const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
@@ -69,14 +127,36 @@ export default function HomeScreen({ state, onStartLesson, onOpenGarden }: HomeP
 
         {/* Continue Lesson */}
         <div>
-          <p className="section-label mb-2">{isLessonComplete ? "LESSON COMPLETE" : "CONTINUE LESSON"}</p>
+          <p className="section-label mb-2">
+            {allComplete ? "ALL LESSONS COMPLETE" : currentLesson ? "CONTINUE LESSON" : "CONTINUE LESSON"}
+          </p>
           <div className="card">
-            <p className="text-sm text-ink font-medium mb-3">
-              Lesson 1 • The letter Ani
-            </p>
-            <button onClick={onStartLesson} className="btn-primary">
-              {isLessonComplete ? "REVIEW" : "CONTINUE"} <span className="ml-1">→</span>
-            </button>
+            {allComplete ? (
+              <>
+                <p className="text-sm text-ink font-medium mb-1">
+                  🎉 {lang === "de" ? "Alle 12 Lektionen abgeschlossen!" : "All 12 lessons complete!"}
+                </p>
+                <p className="text-xs text-ink/60 mb-3">
+                  {lang === "de"
+                    ? "Du kennst die ersten 12 georgischen Buchstaben. Wiederhole jederzeit!"
+                    : "You know the first 12 Georgian letters. Review anytime!"}
+                </p>
+                <button onClick={onStartLesson} className="btn-primary">
+                  REVIEW <span className="ml-1">→</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-ink font-medium mb-3">
+                  {currentLesson
+                    ? `Lesson ${currentLesson.order} • ${t(currentLesson.title, lang)}`
+                    : "Lesson 1 • The letter Ani"}
+                </p>
+                <button onClick={onStartLesson} className="btn-primary">
+                  CONTINUE <span className="ml-1">→</span>
+                </button>
+              </>
+            )}
           </div>
         </div>
 
@@ -106,7 +186,7 @@ export default function HomeScreen({ state, onStartLesson, onOpenGarden }: HomeP
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-2xl font-bold text-ink" style={{ fontFamily: "serif" }}>
-                  მადლობა
+                  {todayWord?.ka || "მადლობა"}
                 </span>
                 <button className="text-sky">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -115,8 +195,10 @@ export default function HomeScreen({ state, onStartLesson, onOpenGarden }: HomeP
                   </svg>
                 </button>
               </div>
-              <p className="text-sky text-sm font-medium">madloba</p>
-              <p className="text-ink/70 text-sm">thank you</p>
+              <p className="text-sky text-sm font-medium">{todayWord?.tr || "madloba"}</p>
+              <p className="text-ink/70 text-sm">
+                {todayWord ? (lang === "de" ? todayWord.de : todayWord.en) : "thank you"}
+              </p>
             </div>
             <div className="ml-3 flex-shrink-0">
               <PixelVase size={60} />

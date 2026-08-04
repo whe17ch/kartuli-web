@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_11_lasi",
+  "title": { "en": "Eleventh Letter: ლ", "de": "Elfter Buchstabe: ლ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ლ",
+    "name": "lasi",
+    "ipa": "l",
+    "transliteration": "l",
+    "phonetic_en": "l as in love",
+    "phonetic_de": "l wie in Licht",
+    "mnemonic": { "en": "ლ loops like a lasso — l for lasso!", "de": "ლ schwingt wie ein Lasso — l wie Lasso!" }
+  },
+  "exercises": [
+    {
+      "id": "lasi_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ლ", "de": "Lerne den Buchstaben ლ kennen" },
+      "answer": "ლ", "audioAsset": "vox_alpha_11_lasi_natural", "imageAsset": "alpha_11_lasi_display",
+      "hint": { "en": "Say l like in love.", "de": "Sag l wie in Licht." },
+      "successFeedback": { "en": "This is lasi.", "de": "Das ist lasi." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "lasi_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ლ", "imageAsset": "alpha_11_lasi_stroke_guide", "strokePathAsset": "alpha_11_lasi_stroke_path",
+      "hint": { "en": "A looping stroke — start at the top and loop down.", "de": "Ein Schleifenstrich — beginne oben und schleife nach unten." },
+      "successFeedback": { "en": "Lovely loops!", "de": "Schöne Schleifen!" },
+      "retryFeedback": { "en": "Try again, make the loop rounder.", "de": "Versuch es nochmal, mach die Schleife runder." }
+    },
+    {
+      "id": "lasi_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ლ", "alternatives": ["ლ", "ვ", "კ"], "audioAsset": "vox_alpha_11_lasi_natural",
+      "successFeedback": { "en": "Correct — ლ.", "de": "Richtig — ლ." },
+      "retryFeedback": { "en": "That was ლ. A liquid l sound.", "de": "Das war ლ. Ein fließender l-Laut." }
+    },
+    {
+      "id": "lasi_speak", "type": "speaking",
+      "prompt": { "en": "Say ლ", "de": "Sprich ლ" },
+      "answer": "ლ", "audioAsset": "vox_alpha_11_lasi_slow", "skipAllowed": true,
+      "hint": { "en": "Touch your tongue to the roof of your mouth and let sound flow.", "de": "Berühre mit der Zunge den Gaumen und lass den Laut fließen." },
+      "successFeedback": { "en": "Smooth l sound!", "de": "Fließender l-Laut!" },
+      "retryFeedback": { "en": "Try again — l as in love.", "de": "Versuch es nochmal — l wie in Licht." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Rustaveli Avenue", "de": "Rustaweli-Boulevard" },
+    "body": { "en": "Rustaveli Avenue is the main boulevard of Tbilisi, named after the medieval poet Shota Rustaveli. Lined with theatres, galleries, and the parliament building, it's the heart of Tbilisi's cultural life and a favourite place for an evening stroll.", "de": "Der Rustaweli-Boulevard ist die Hauptstraße von Tiflis, benannt nach dem mittelalterlichen Dichter Schota Rustaweli. Gesäumt von Theatern, Galerien und dem Parlamentsgebäude ist er das Herz des kulturellen Lebens und ein beliebter Ort für einen Abendspaziergang." },
+    "imageAsset": "env_rustaveli_avenue"
+  },
+  "completionMessage": { "en": "Eleven letters! ლ is blooming!", "de": "Elf Buchstaben! ლ blüht auf!" },
+  "gardenReward": { "id": "garden_lasi_sprout", "label": "ლ — lasi", "asset": "garden_alpha_11_lasi_sprout" }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_03_gani",
+  "title": { "en": "Third Letter: გ", "de": "Dritter Buchstabe: გ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "გ",
+    "name": "gani",
+    "ipa": "ɡ",
+    "transliteration": "g",
+    "phonetic_en": "g as in go",
+    "phonetic_de": "g wie in gut",
+    "mnemonic": { "en": "გ looks like a hook catching a fish — g for 'got one!'", "de": "გ sieht aus wie ein Angelhaken — g wie 'gefangen!'" }
+  },
+  "exercises": [
+    {
+      "id": "gani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter გ", "de": "Lerne den Buchstaben გ kennen" },
+      "answer": "გ", "audioAsset": "vox_alpha_03_gani_natural", "imageAsset": "alpha_03_gani_display",
+      "hint": { "en": "Say g like in go.", "de": "Sag g wie in gut." },
+      "successFeedback": { "en": "This is gani.", "de": "Das ist gani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "gani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "გ", "imageAsset": "alpha_03_gani_stroke_guide", "strokePathAsset": "alpha_03_gani_stroke_path",
+      "hint": { "en": "One smooth downward stroke with a hook at the bottom.", "de": "Ein glatter Strich nach unten mit einem Haken am Ende." },
+      "successFeedback": { "en": "Nice stroke!", "de": "Schöner Strich!" },
+      "retryFeedback": { "en": "Try again, focus on the hook.", "de": "Versuch es nochmal, achte auf den Haken." }
+    },
+    {
+      "id": "gani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "გ", "alternatives": ["გ", "ა", "ბ"], "audioAsset": "vox_alpha_03_gani_natural",
+      "successFeedback": { "en": "Correct — გ.", "de": "Richtig — გ." },
+      "retryFeedback": { "en": "That was გ. A hard g like in go.", "de": "Das war გ. Ein hartes g wie in gut." }
+    },
+    {
+      "id": "gani_speak", "type": "speaking",
+      "prompt": { "en": "Say გ", "de": "Sprich გ" },
+      "answer": "გ", "audioAsset": "vox_alpha_03_gani_slow", "skipAllowed": true,
+      "hint": { "en": "A voiced g from the back of your throat.", "de": "Ein stimmhaftes g aus dem hinteren Rachen." },
+      "successFeedback": { "en": "Clear and strong!", "de": "Klar und deutlich!" },
+      "retryFeedback": { "en": "Try again — hard g as in go.", "de": "Versuch es nochmal — hartes g wie in gut." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Tbilisi — the warm city", "de": "Tiflis — die warme Stadt" },
+    "body": { "en": "Tbilisi gets its name from the Georgian word 'tbili', meaning warm. The city was founded near natural hot springs, and those sulfur baths still flow today in the Abanotubani district.", "de": "Tiflis leitet seinen Namen vom georgischen Wort ‚tbili' ab, was warm bedeutet. Die Stadt wurde bei natürlichen heißen Quellen gegründet, und die Schwefelbäder im Stadtteil Abanotubani fließen noch heute." },
+    "imageAsset": "env_tbilisi_panorama"
+  },
+  "completionMessage": { "en": "Three letters down — გ is yours!", "de": "Drei Buchstaben geschafft — გ gehört dir!" },
+  "gardenReward": { "id": "garden_gani_sprout", "label": "გ — gani", "asset": "garden_alpha_03_gani_sprout" }
+}

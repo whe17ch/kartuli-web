@@ -15,9 +15,11 @@ type Step = "intro" | "sound" | "tracing" | "listen" | "speaking" | "cultural" |
 const STEPS: Step[] = ["intro", "sound", "tracing", "listen", "speaking", "cultural", "summary"];
 
 export default function LessonFlow({
+  lessonId,
   onClose,
   onComplete,
 }: {
+  lessonId?: string;
   onClose: () => void;
   onComplete: () => void;
 }) {
@@ -27,10 +29,19 @@ export default function LessonFlow({
   const [skippedIds, setSkippedIds] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/lesson_ani.json")
+    const url = lessonId ? `/lessons/${lessonId}.json` : "/lesson_ani.json";
+    fetch(url)
       .then((r) => r.json())
-      .then(setLesson);
-  }, []);
+      .then(setLesson)
+      .catch(() => {
+        // Fallback to original lesson
+        if (lessonId) {
+          fetch("/lesson_ani.json")
+            .then((r) => r.json())
+            .then(setLesson);
+        }
+      });
+  }, [lessonId]);
 
   const lang = loadState().sourceLanguage;
   const step = STEPS[stepIndex];
@@ -81,6 +92,12 @@ export default function LessonFlow({
     );
   }
 
+  // Use exercise IDs from the loaded lesson data
+  const introExercise = lesson.exercises.find((e) => e.type === "introduction") || lesson.exercises[0];
+  const traceExercise = lesson.exercises.find((e) => e.type === "tracing") || lesson.exercises[1];
+  const listenExercise = lesson.exercises.find((e) => e.type === "multipleChoice") || lesson.exercises[2];
+  const speakExercise = lesson.exercises.find((e) => e.type === "speaking") || lesson.exercises[3];
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       {/* Progress bar */}
@@ -113,7 +130,7 @@ export default function LessonFlow({
             letter={lesson.letter}
             lang={lang}
             onContinue={() => {
-              markComplete("ani_intro");
+              markComplete(introExercise.id);
               next();
             }}
           />
@@ -122,34 +139,34 @@ export default function LessonFlow({
           <LetterTracing
             glyph={lesson.letter.glyph}
             onComplete={() => {
-              markComplete("ani_trace");
+              markComplete(traceExercise.id);
               next();
             }}
           />
         )}
         {step === "listen" && (
           <ListenChoose
-            alternatives={lesson.exercises[2].alternatives || []}
-            correctAnswer={lesson.exercises[2].answer}
+            alternatives={listenExercise.alternatives || []}
+            correctAnswer={listenExercise.answer}
             lang={lang}
-            successFeedback={t(lesson.exercises[2].successFeedback || {}, lang)}
-            retryFeedback={t(lesson.exercises[2].retryFeedback || {}, lang)}
+            successFeedback={t(listenExercise.successFeedback || {}, lang)}
+            retryFeedback={t(listenExercise.retryFeedback || {}, lang)}
             onComplete={() => {
-              markComplete("ani_listen_choose");
+              markComplete(listenExercise.id);
               next();
             }}
           />
         )}
         {step === "speaking" && (
           <Speaking
-            prompt={t(lesson.exercises[3].prompt, lang)}
+            prompt={t(speakExercise.prompt, lang)}
             lang={lang}
             onComplete={() => {
-              markComplete("ani_speak");
+              markComplete(speakExercise.id);
               next();
             }}
             onSkip={() => {
-              markSkipped("ani_speak");
+              markSkipped(speakExercise.id);
               next();
             }}
           />

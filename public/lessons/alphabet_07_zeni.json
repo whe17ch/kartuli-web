@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_07_zeni",
+  "title": { "en": "Seventh Letter: ზ", "de": "Siebter Buchstabe: ზ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ზ",
+    "name": "zeni",
+    "ipa": "z",
+    "transliteration": "z",
+    "phonetic_en": "z as in zone",
+    "phonetic_de": "s wie in Sonne",
+    "mnemonic": { "en": "ზ zigzags like a buzzing bee — z for zzz!", "de": "ზ zickzackt wie eine summende Biene — s wie Summen!" }
+  },
+  "exercises": [
+    {
+      "id": "zeni_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ზ", "de": "Lerne den Buchstaben ზ kennen" },
+      "answer": "ზ", "audioAsset": "vox_alpha_07_zeni_natural", "imageAsset": "alpha_07_zeni_display",
+      "hint": { "en": "Say z like in zone.", "de": "Sag s wie in Sonne." },
+      "successFeedback": { "en": "This is zeni.", "de": "Das ist zeni." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "zeni_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ზ", "imageAsset": "alpha_07_zeni_stroke_guide", "strokePathAsset": "alpha_07_zeni_stroke_path",
+      "hint": { "en": "A vertical stroke with a curve at the top.", "de": "Ein senkrechter Strich mit einer Kurve oben." },
+      "successFeedback": { "en": "Clean lines!", "de": "Saubere Linien!" },
+      "retryFeedback": { "en": "Almost. Keep the top curve tight.", "de": "Fast. Halte die obere Kurve eng." }
+    },
+    {
+      "id": "zeni_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ზ", "alternatives": ["ზ", "ვ", "დ"], "audioAsset": "vox_alpha_07_zeni_natural",
+      "successFeedback": { "en": "Correct — ზ.", "de": "Richtig — ზ." },
+      "retryFeedback": { "en": "That was ზ. A buzzing z sound.", "de": "Das war ზ. Ein summendes s." }
+    },
+    {
+      "id": "zeni_speak", "type": "speaking",
+      "prompt": { "en": "Say ზ", "de": "Sprich ზ" },
+      "answer": "ზ", "audioAsset": "vox_alpha_07_zeni_slow", "skipAllowed": true,
+      "hint": { "en": "Let your tongue buzz against your teeth.", "de": "Lass deine Zunge an den Zähnen summen." },
+      "successFeedback": { "en": "Good buzzing z!", "de": "Guter summender Laut!" },
+      "retryFeedback": { "en": "Try again — z as in zone.", "de": "Versuch es nochmal — s wie in Sonne." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Narikala fortress", "de": "Festung Narikala" },
+    "body": { "en": "Narikala is an ancient fortress on a steep hill overlooking Tbilisi. Founded in the 4th century, it has watched over the city through empires and centuries. Today you can reach it by cable car for stunning views of old Tbilisi.", "de": "Narikala ist eine alte Festung auf einem steilen Hügel über Tiflis. Im 4. Jahrhundert gegründet, hat sie die Stadt durch Imperien und Jahrhunderte bewacht. Heute erreicht man sie per Seilbahn und genießt einen atemberaubenden Blick auf die Altstadt." },
+    "imageAsset": "env_narikala_fortress"
+  },
+  "completionMessage": { "en": "Seven letters! ზ is in your garden!", "de": "Sieben Buchstaben! ზ ist in deinem Garten!" },
+  "gardenReward": { "id": "garden_zeni_sprout", "label": "ზ — zeni", "asset": "garden_alpha_07_zeni_sprout" }
+}

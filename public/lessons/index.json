@@ -1,0 +1,112 @@
+{
+  "lessons": [
+    {
+      "id": "alphabet_01_ani",
+      "file": "alphabet_01_ani.json",
+      "letter": "ა",
+      "name": "ani",
+      "title": { "en": "First Letter: ა", "de": "Erster Buchstabe: ა" },
+      "order": 1,
+      "requiredCompletions": 0
+    },
+    {
+      "id": "alphabet_02_bani",
+      "file": "alphabet_02_bani.json",
+      "letter": "ბ",
+      "name": "bani",
+      "title": { "en": "Second Letter: ბ", "de": "Zweiter Buchstabe: ბ" },
+      "order": 2,
+      "requiredCompletions": 1
+    },
+    {
+      "id": "alphabet_03_gani",
+      "file": "alphabet_03_gani.json",
+      "letter": "გ",
+      "name": "gani",
+      "title": { "en": "Third Letter: გ", "de": "Dritter Buchstabe: გ" },
+      "order": 3,
+      "requiredCompletions": 2
+    },
+    {
+      "id": "alphabet_04_doni",
+      "file": "alphabet_04_doni.json",
+      "letter": "დ",
+      "name": "doni",
+      "title": { "en": "Fourth Letter: დ", "de": "Vierter Buchstabe: დ" },
+      "order": 4,
+      "requiredCompletions": 3
+    },
+    {
+      "id": "alphabet_05_eni",
+      "file": "alphabet_05_eni.json",
+      "letter": "ე",
+      "name": "eni",
+      "title": { "en": "Fifth Letter: ე", "de": "Fünfter Buchstabe: ე" },
+      "order": 5,
+      "requiredCompletions": 4
+    },
+    {
+      "id": "alphabet_06_vini",
+      "file": "alphabet_06_vini.json",
+      "letter": "ვ",
+      "name": "vini",
+      "title": { "en": "Sixth Letter: ვ", "de": "Sechster Buchstabe: ვ" },
+      "order": 6,
+      "requiredCompletions": 5
+    },
+    {
+      "id": "alphabet_07_zeni",
+      "file": "alphabet_07_zeni.json",
+      "letter": "ზ",
+      "name": "zeni",
+      "title": { "en": "Seventh Letter: ზ", "de": "Siebter Buchstabe: ზ" },
+      "order": 7,
+      "requiredCompletions": 6
+    },
+    {
+      "id": "alphabet_08_tani",
+      "file": "alphabet_08_tani.json",
+      "letter": "თ",
+      "name": "tani",
+      "title": { "en": "Eighth Letter: თ", "de": "Achter Buchstabe: თ" },
+      "order": 8,
+      "requiredCompletions": 7
+    },
+    {
+      "id": "alphabet_09_ini",
+      "file": "alphabet_09_ini.json",
+      "letter": "ი",
+      "name": "ini",
+      "title": { "en": "Ninth Letter: ი", "de": "Neunter Buchstabe: ი" },
+      "order": 9,
+      "requiredCompletions": 8
+    },
+    {
+      "id": "alphabet_10_kani",
+      "file": "alphabet_10_kani.json",
+      "letter": "კ",
+      "name": "kani",
+      "title": { "en": "Tenth Letter: კ", "de": "Zehnter Buchstabe: კ" },
+      "order": 10,
+      "requiredCompletions": 9
+    },
+    {
+      "id": "alphabet_11_lasi",
+      "file": "alphabet_11_lasi.json",
+      "letter": "ლ",
+      "name": "lasi",
+      "title": { "en": "Eleventh Letter: ლ", "de": "Elfter Buchstabe: ლ" },
+      "order": 11,
+      "requiredCompletions": 10
+    },
+    {
+      "id": "alphabet_12_mani",
+      "file": "alphabet_12_mani.json",
+      "letter": "მ",
+      "name": "mani",
+      "title": { "en": "Twelfth Letter: მ", "de": "Zwölfter Buchstabe: მ" },
+      "order": 12,
+      "requiredCompletions": 11
+    }
+  ]
+}

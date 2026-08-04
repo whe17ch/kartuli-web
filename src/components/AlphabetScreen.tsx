@@ -1,22 +1,79 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CrossStitchCorner, CornerCross } from "./CrossStitchOrnament";
 import CrossStitchOrnament from "./CrossStitchOrnament";
 
 interface AlphabetScreenProps {
+  gardenItems: { id: string; label: string; plantedAt: string }[];
   onBack: () => void;
+  onStartLesson: (lessonId: string) => void;
 }
 
-const letters = [
-  "ა", "ბ", "გ", "დ", "ე", "ვ",
-  "ზ", "თ", "ი", "კ", "ლ", "მ",
-];
+interface LessonIndexEntry {
+  id: string;
+  file: string;
+  letter: string;
+  name: string;
+  title: { en: string; de: string };
+  order: number;
+  requiredCompletions: number;
+}
 
-export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
+const GARDEN_ID_MAP: Record<string, string> = {
+  alphabet_01_ani: "garden_ani_sprout",
+  alphabet_02_bani: "garden_bani_sprout",
+  alphabet_03_gani: "garden_gani_sprout",
+  alphabet_04_doni: "garden_doni_sprout",
+  alphabet_05_eni: "garden_eni_sprout",
+  alphabet_06_vini: "garden_vini_sprout",
+  alphabet_07_zeni: "garden_zeni_sprout",
+  alphabet_08_tani: "garden_tani_sprout",
+  alphabet_09_ini: "garden_ini_sprout",
+  alphabet_10_kani: "garden_kani_sprout",
+  alphabet_11_lasi: "garden_lasi_sprout",
+  alphabet_12_mani: "garden_mani_sprout",
+};
+
+export default function AlphabetScreen({ gardenItems, onBack, onStartLesson }: AlphabetScreenProps) {
+  const [lessons, setLessons] = useState<LessonIndexEntry[]>([]);
   const [activeLetter, setActiveLetter] = useState(0);
-  const learnedCount = 6;
-  const totalLetters = 33;
+
+  useEffect(() => {
+    fetch("/lessons/index.json")
+      .then((r) => r.json())
+      .then((data) => setLessons(data.lessons || []))
+      .catch(() => {});
+  }, []);
+
+  const completedGardenIds = new Set(gardenItems.map((g) => g.id));
+
+  const letters = lessons.length > 0
+    ? lessons.map((l) => l.letter)
+    : ["ა", "ბ", "გ", "დ", "ე", "ვ", "ზ", "თ", "ი", "კ", "ლ", "მ"];
+
+  const isLearned = (index: number) => {
+    if (lessons.length === 0) return false;
+    const lesson = lessons[index];
+    if (!lesson) return false;
+    return completedGardenIds.has(GARDEN_ID_MAP[lesson.id] || "");
+  };
+
+  const isCurrent = (index: number) => {
+    if (lessons.length === 0) return index === 0;
+    // Current = first not-learned
+    for (let i = 0; i < lessons.length; i++) {
+      if (!isLearned(i)) return i === index;
+    }
+    return false;
+  };
+
+  const learnedCount = lessons.filter((_, i) => isLearned(i)).length;
+  const totalLetters = 33; // Full Georgian alphabet
+
+  const activeLesson = lessons[activeLetter];
+  const activeIsLearned = isLearned(activeLetter);
+  const activeIsCurrent = isCurrent(activeLetter);
 
   return (
     <div className="min-h-screen bg-cream relative">
@@ -50,22 +107,28 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
       {/* Letter grid */}
       <div className="px-5 mb-5">
         <div className="grid grid-cols-6 gap-2">
-          {letters.map((letter, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveLetter(i)}
-              className={`aspect-square rounded-xl flex items-center justify-center text-lg font-bold transition-all ${
-                activeLetter === i
-                  ? "bg-rose text-white shadow-md"
-                  : i < learnedCount
-                  ? "bg-card-bg border border-card-border text-ink"
-                  : "bg-gray-100 text-ink/30 border border-gray-200"
-              }`}
-              style={{ fontFamily: "serif" }}
-            >
-              {letter}
-            </button>
-          ))}
+          {letters.map((letter, i) => {
+            const learned = isLearned(i);
+            const current = isCurrent(i);
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveLetter(i)}
+                className={`aspect-square rounded-xl flex items-center justify-center text-lg font-bold transition-all ${
+                  activeLetter === i
+                    ? "bg-rose text-white shadow-md"
+                    : learned
+                    ? "bg-mint/20 border-2 border-mint text-ink"
+                    : current
+                    ? "bg-sky/20 border-2 border-sky text-ink"
+                    : "bg-gray-100 text-ink/30 border border-gray-200"
+                }`}
+                style={{ fontFamily: "serif" }}
+              >
+                {letter}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -73,7 +136,6 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
       <div className="px-5 mb-4">
         <div className="card flex items-center justify-center py-8">
           <svg width="160" height="160" viewBox="0 0 160 160">
-            {/* Letter outline (ghost) */}
             <text
               x="80"
               y="110"
@@ -84,7 +146,6 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
             >
               {letters[activeLetter]}
             </text>
-            {/* Stroke path with gradient */}
             <text
               x="80"
               y="110"
@@ -97,12 +158,10 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
             >
               {letters[activeLetter]}
             </text>
-            {/* Numbered stroke guides */}
             <circle cx="65" cy="40" r="10" fill="#6DA8FD"/>
             <text x="65" y="44" textAnchor="middle" fontSize="11" fill="white" fontWeight="bold">1</text>
             <circle cx="95" cy="90" r="10" fill="#6DA8FD"/>
             <text x="95" y="94" textAnchor="middle" fontSize="11" fill="white" fontWeight="bold">2</text>
-            {/* Direction arrows */}
             <path d="M65 50 L70 65" stroke="#6DA8FD" strokeWidth="1.5" strokeDasharray="3 2" markerEnd="url(#arrowhead)"/>
             <defs>
               <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
@@ -111,6 +170,14 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
             </defs>
           </svg>
         </div>
+        {activeLesson && (
+          <div className="mt-2 text-center">
+            <p className="text-sm text-ink font-medium">{activeLesson.name}</p>
+            {activeIsLearned && (
+              <p className="text-xs text-mint font-medium mt-1">✓ Learned</p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Write the letter + stages */}
@@ -153,9 +220,19 @@ export default function AlphabetScreen({ onBack }: AlphabetScreenProps) {
 
       {/* Practice CTA */}
       <div className="px-5 pb-8">
-        <button className="btn-primary">
-          PRACTICE MORE <span>→</span>
-        </button>
+        {(activeIsLearned || activeIsCurrent) && activeLesson && (
+          <button
+            onClick={() => onStartLesson(activeLesson.id)}
+            className="btn-primary"
+          >
+            {activeIsLearned ? "REVIEW" : "START LESSON"} <span>→</span>
+          </button>
+        )}
+        {!activeIsLearned && !activeIsCurrent && (
+          <button className="btn-primary opacity-50 cursor-not-allowed" disabled>
+            LOCKED <span>🔒</span>
+          </button>
+        )}
       </div>
     </div>
   );

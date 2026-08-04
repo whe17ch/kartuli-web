@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_10_kani",
+  "title": { "en": "Tenth Letter: კ", "de": "Zehnter Buchstabe: კ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "კ",
+    "name": "kani",
+    "ipa": "kʼ",
+    "transliteration": "k'",
+    "phonetic_en": "k (ejective)",
+    "phonetic_de": "k (ejektiv)",
+    "mnemonic": { "en": "კ looks like a key — k for key, but pop it from your throat!", "de": "კ sieht aus wie ein Schlüssel — k wie Knack, aber aus der Kehle!" }
+  },
+  "exercises": [
+    {
+      "id": "kani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter კ", "de": "Lerne den Buchstaben კ kennen" },
+      "answer": "კ", "audioAsset": "vox_alpha_10_kani_natural", "imageAsset": "alpha_10_kani_display",
+      "hint": { "en": "An ejective k — pop it from your throat.", "de": "Ein ejektives k — drücke es aus der Kehle." },
+      "successFeedback": { "en": "This is kani.", "de": "Das ist kani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "kani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "კ", "imageAsset": "alpha_10_kani_stroke_guide", "strokePathAsset": "alpha_10_kani_stroke_path",
+      "hint": { "en": "A vertical line with two arms extending right.", "de": "Ein senkrechter Strich mit zwei Armen nach rechts." },
+      "successFeedback": { "en": "Sharp angles!", "de": "Scharfe Winkel!" },
+      "retryFeedback": { "en": "Try again, keep the arms symmetrical.", "de": "Versuch es nochmal, halte die Arme symmetrisch." }
+    },
+    {
+      "id": "kani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "კ", "alternatives": ["კ", "გ", "თ"], "audioAsset": "vox_alpha_10_kani_natural",
+      "successFeedback": { "en": "Correct — კ.", "de": "Richtig — კ." },
+      "retryFeedback": { "en": "That was კ. An ejective k — sharper than English k.", "de": "Das war კ. Ein ejektives k — schärfer als im Deutschen." }
+    },
+    {
+      "id": "kani_speak", "type": "speaking",
+      "prompt": { "en": "Say კ", "de": "Sprich კ" },
+      "answer": "კ", "audioAsset": "vox_alpha_10_kani_slow", "skipAllowed": true,
+      "hint": { "en": "Close your throat, build pressure, then release — k!", "de": "Schließe die Kehle, baue Druck auf, dann loslassen — k!" },
+      "successFeedback": { "en": "Great ejective!", "de": "Toller Ejektiv!" },
+      "retryFeedback": { "en": "Try again — pop it from your throat.", "de": "Versuch es nochmal — drücke es aus der Kehle." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Georgian dance", "de": "Georgischer Tanz" },
+    "body": { "en": "Georgian dance is breathtaking — men leap and spin on their toes while women glide gracefully across the stage. The contrast between powerful male acrobatics and elegant female movements makes it one of the world's most dramatic dance traditions.", "de": "Georgischer Tanz ist atemberaubend — Männer springen und drehen sich auf den Zehenspitzen, während Frauen anmutig über die Bühne gleiten. Der Kontrast zwischen kraftvoller männlicher Akrobatik und eleganten weiblichen Bewegungen macht ihn zu einer der dramatischsten Tanztraditionen der Welt." },
+    "imageAsset": "env_georgian_dance"
+  },
+  "completionMessage": { "en": "Ten letters strong — კ is mastered!", "de": "Zehn Buchstaben stark — კ ist gemeistert!" },
+  "gardenReward": { "id": "garden_kani_sprout", "label": "კ — kani", "asset": "garden_alpha_10_kani_sprout" }
+}

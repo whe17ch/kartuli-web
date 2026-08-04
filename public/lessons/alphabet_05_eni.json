@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_05_eni",
+  "title": { "en": "Fifth Letter: ე", "de": "Fünfter Buchstabe: ე" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ე",
+    "name": "eni",
+    "ipa": "ɛ",
+    "transliteration": "e",
+    "phonetic_en": "e as in bed",
+    "phonetic_de": "e wie in Bett",
+    "mnemonic": { "en": "ე looks like a backwards 3 — think 'thrEE' to remember the e sound!", "de": "ე sieht aus wie eine umgedrehte 3 — denke an 'drEI' für den e-Laut!" }
+  },
+  "exercises": [
+    {
+      "id": "eni_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ე", "de": "Lerne den Buchstaben ე kennen" },
+      "answer": "ე", "audioAsset": "vox_alpha_05_eni_natural", "imageAsset": "alpha_05_eni_display",
+      "hint": { "en": "Say e like in bed.", "de": "Sag e wie in Bett." },
+      "successFeedback": { "en": "This is eni.", "de": "Das ist eni." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "eni_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ე", "imageAsset": "alpha_05_eni_stroke_guide", "strokePathAsset": "alpha_05_eni_stroke_path",
+      "hint": { "en": "Two curves stacked — like a backwards 3.", "de": "Zwei gestapelte Bögen — wie eine umgedrehte 3." },
+      "successFeedback": { "en": "Beautifully traced!", "de": "Wunderschön nachgezeichnet!" },
+      "retryFeedback": { "en": "Almost. Keep both curves even.", "de": "Fast. Halte beide Bögen gleichmäßig." }
+    },
+    {
+      "id": "eni_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ე", "alternatives": ["ე", "ა", "დ"], "audioAsset": "vox_alpha_05_eni_natural",
+      "successFeedback": { "en": "Correct — ე.", "de": "Richtig — ე." },
+      "retryFeedback": { "en": "That was ე. An open e like in bed.", "de": "Das war ე. Ein offenes e wie in Bett." }
+    },
+    {
+      "id": "eni_speak", "type": "speaking",
+      "prompt": { "en": "Say ე", "de": "Sprich ე" },
+      "answer": "ე", "audioAsset": "vox_alpha_05_eni_slow", "skipAllowed": true,
+      "hint": { "en": "Open your mouth slightly — like saying 'eh'.", "de": "Öffne den Mund leicht — wie beim 'eh'-Sagen." },
+      "successFeedback": { "en": "Clear vowel sound!", "de": "Klarer Vokallaut!" },
+      "retryFeedback": { "en": "Try again — e as in bed.", "de": "Versuch es nochmal — e wie in Bett." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "8,000 years of wine", "de": "8.000 Jahre Wein" },
+    "body": { "en": "Georgia is the birthplace of wine. For over 8,000 years, Georgians have fermented grapes in qvevri — large clay vessels buried underground. This ancient method is now a UNESCO heritage tradition.", "de": "Georgien ist die Wiege des Weins. Seit über 8.000 Jahren vergären Georgier Trauben in Qvevri — großen Tongefäßen, die in der Erde vergraben werden. Diese uralte Methode ist heute UNESCO-Kulturerbe." },
+    "imageAsset": "env_qvevri_winemaking"
+  },
+  "completionMessage": { "en": "Five letters learned — ე is in your collection!", "de": "Fünf Buchstaben gelernt — ე ist in deiner Sammlung!" },
+  "gardenReward": { "id": "garden_eni_sprout", "label": "ე — eni", "asset": "garden_alpha_05_eni_sprout" }
+}

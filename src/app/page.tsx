@@ -32,10 +32,48 @@ type Screen =
 
 type Tab = "home" | "learn" | "tandem" | "culture" | "profile";
 
+interface LessonIndexEntry {
+  id: string;
+  file: string;
+  letter: string;
+  name: string;
+  title: { en: string; de: string };
+  order: number;
+  requiredCompletions: number;
+}
+
+const LESSON_ID_TO_GARDEN: Record<string, string> = {
+  alphabet_01_ani: "garden_ani_sprout",
+  alphabet_02_bani: "garden_bani_sprout",
+  alphabet_03_gani: "garden_gani_sprout",
+  alphabet_04_doni: "garden_doni_sprout",
+  alphabet_05_eni: "garden_eni_sprout",
+  alphabet_06_vini: "garden_vini_sprout",
+  alphabet_07_zeni: "garden_zeni_sprout",
+  alphabet_08_tani: "garden_tani_sprout",
+  alphabet_09_ini: "garden_ini_sprout",
+  alphabet_10_kani: "garden_kani_sprout",
+  alphabet_11_lasi: "garden_lasi_sprout",
+  alphabet_12_mani: "garden_mani_sprout",
+};
+
+function getCurrentLessonId(
+  lessons: LessonIndexEntry[],
+  gardenItems: { id: string }[]
+): string {
+  const completedGardenIds = new Set(gardenItems.map((g) => g.id));
+  const current = lessons.find(
+    (l) => !completedGardenIds.has(LESSON_ID_TO_GARDEN[l.id] || l.id)
+  );
+  // Return current lesson id, or first lesson if all complete (review mode)
+  return current?.id || lessons[0]?.id || "alphabet_01_ani";
+}
+
 export default function Page() {
   const [screen, setScreen] = useState<Screen>("welcome");
   const [state, setState] = useState<AppState | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>("home");
+  const [lessonIndex, setLessonIndex] = useState<LessonIndexEntry[]>([]);
 
   useEffect(() => {
     const s = loadState();
@@ -44,6 +82,10 @@ export default function Page() {
       updateStreak();
       setScreen("home");
     }
+    fetch("/lessons/index.json")
+      .then((r) => r.json())
+      .then((data) => setLessonIndex(data.lessons || []))
+      .catch(() => {});
   }, []);
 
   const refresh = useCallback(() => {
@@ -65,6 +107,7 @@ export default function Page() {
   if (!state) return null;
 
   const showBottomNav = ["home", "alphabet", "culture", "tutor", "profile", "word_garden"].includes(screen);
+  const currentLessonId = getCurrentLessonId(lessonIndex, state.gardenItems);
 
   return (
     <div className="phone-frame bg-cream">
@@ -109,6 +152,7 @@ export default function Page() {
         )}
         {screen === "lesson" && (
           <LessonFlow
+            lessonId={currentLessonId}
             onClose={() => {
               refresh();
               setScreen("home");
@@ -120,7 +164,15 @@ export default function Page() {
           />
         )}
         {screen === "alphabet" && (
-          <AlphabetScreen onBack={() => { setActiveTab("home"); setScreen("home"); }} />
+          <AlphabetScreen
+            gardenItems={state.gardenItems}
+            onBack={() => { setActiveTab("home"); setScreen("home"); }}
+            onStartLesson={(lessonId: string) => {
+              // Override current lesson temporarily — store in state isn't needed,
+              // the AlphabetScreen will trigger the lesson screen
+              setScreen("lesson");
+            }}
+          />
         )}
         {screen === "culture" && (
           <CultureScreen onBack={() => { setActiveTab("home"); setScreen("home"); }} />

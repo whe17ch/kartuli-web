@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_09_ini",
+  "title": { "en": "Ninth Letter: ი", "de": "Neunter Buchstabe: ი" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "ი",
+    "name": "ini",
+    "ipa": "i",
+    "transliteration": "i",
+    "phonetic_en": "ee as in see",
+    "phonetic_de": "i wie in Igel",
+    "mnemonic": { "en": "ი is a simple vertical stroke — think of the dot on an i, stretched tall!", "de": "ი ist ein einfacher senkrechter Strich — wie der Strich vom i, lang gezogen!" }
+  },
+  "exercises": [
+    {
+      "id": "ini_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter ი", "de": "Lerne den Buchstaben ი kennen" },
+      "answer": "ი", "audioAsset": "vox_alpha_09_ini_natural", "imageAsset": "alpha_09_ini_display",
+      "hint": { "en": "Say ee like in see.", "de": "Sag i wie in Igel." },
+      "successFeedback": { "en": "This is ini.", "de": "Das ist ini." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "ini_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "ი", "imageAsset": "alpha_09_ini_stroke_guide", "strokePathAsset": "alpha_09_ini_stroke_path",
+      "hint": { "en": "One straight stroke down with a small hook.", "de": "Ein gerader Strich nach unten mit einem kleinen Haken." },
+      "successFeedback": { "en": "Simple and clean!", "de": "Einfach und sauber!" },
+      "retryFeedback": { "en": "Almost. Keep it straight.", "de": "Fast. Halte ihn gerade." }
+    },
+    {
+      "id": "ini_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "ი", "alternatives": ["ი", "ე", "ა"], "audioAsset": "vox_alpha_09_ini_natural",
+      "successFeedback": { "en": "Correct — ი.", "de": "Richtig — ი." },
+      "retryFeedback": { "en": "That was ი. A high ee sound like in see.", "de": "Das war ი. Ein hohes i wie in Igel." }
+    },
+    {
+      "id": "ini_speak", "type": "speaking",
+      "prompt": { "en": "Say ი", "de": "Sprich ი" },
+      "answer": "ი", "audioAsset": "vox_alpha_09_ini_slow", "skipAllowed": true,
+      "hint": { "en": "Smile wide and say ee.", "de": "Lächle breit und sag i." },
+      "successFeedback": { "en": "Bright and clear!", "de": "Hell und klar!" },
+      "retryFeedback": { "en": "Try again — ee as in see.", "de": "Versuch es nochmal — i wie in Igel." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Svetitskhoveli Cathedral", "de": "Swetizchoweli-Kathedrale" },
+    "body": { "en": "Svetitskhoveli in Mtskheta is one of the holiest sites in Georgia. Built in the 11th century, this UNESCO World Heritage cathedral is said to house the robe of Christ. Mtskheta was Georgia's ancient capital.", "de": "Swetizchoweli in Mzcheta ist einer der heiligsten Orte Georgiens. Die im 11. Jahrhundert erbaute UNESCO-Welterbe-Kathedrale soll das Gewand Christi beherbergen. Mzcheta war die antike Hauptstadt Georgiens." },
+    "imageAsset": "env_svetitskhoveli"
+  },
+  "completionMessage": { "en": "Nine letters! ი is growing in your garden!", "de": "Neun Buchstaben! ი wächst in deinem Garten!" },
+  "gardenReward": { "id": "garden_ini_sprout", "label": "ი — ini", "asset": "garden_alpha_09_ini_sprout" }
+}

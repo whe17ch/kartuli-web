@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_04_doni",
+  "title": { "en": "Fourth Letter: დ", "de": "Vierter Buchstabe: დ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "დ",
+    "name": "doni",
+    "ipa": "d",
+    "transliteration": "d",
+    "phonetic_en": "d as in dog",
+    "phonetic_de": "d wie in Dach",
+    "mnemonic": { "en": "დ looks like a little door frame — d for door!", "de": "დ sieht aus wie ein kleiner Türrahmen — d wie Dach!" }
+  },
+  "exercises": [
+    {
+      "id": "doni_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter დ", "de": "Lerne den Buchstaben დ kennen" },
+      "answer": "დ", "audioAsset": "vox_alpha_04_doni_natural", "imageAsset": "alpha_04_doni_display",
+      "hint": { "en": "Say d like in dog.", "de": "Sag d wie in Dach." },
+      "successFeedback": { "en": "This is doni.", "de": "Das ist doni." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "doni_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "დ", "imageAsset": "alpha_04_doni_stroke_guide", "strokePathAsset": "alpha_04_doni_stroke_path",
+      "hint": { "en": "Draw a rounded rectangle open at the bottom.", "de": "Zeichne ein abgerundetes Rechteck, unten offen." },
+      "successFeedback": { "en": "Perfect shape!", "de": "Perfekte Form!" },
+      "retryFeedback": { "en": "Almost. Keep the curves smooth.", "de": "Fast. Halte die Kurven gleichmäßig." }
+    },
+    {
+      "id": "doni_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "დ", "alternatives": ["დ", "ბ", "გ"], "audioAsset": "vox_alpha_04_doni_natural",
+      "successFeedback": { "en": "Correct — დ.", "de": "Richtig — დ." },
+      "retryFeedback": { "en": "That was დ. Like d in dog.", "de": "Das war დ. Wie d in Dach." }
+    },
+    {
+      "id": "doni_speak", "type": "speaking",
+      "prompt": { "en": "Say დ", "de": "Sprich დ" },
+      "answer": "დ", "audioAsset": "vox_alpha_04_doni_slow", "skipAllowed": true,
+      "hint": { "en": "Touch your tongue to the roof of your mouth.", "de": "Berühre mit der Zunge den Gaumen." },
+      "successFeedback": { "en": "Well spoken!", "de": "Gut gesprochen!" },
+      "retryFeedback": { "en": "Try again — d as in dog.", "de": "Versuch es nochmal — d wie in Dach." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Georgian polyphonic singing", "de": "Georgischer polyphoner Gesang" },
+    "body": { "en": "Georgian polyphonic singing is a UNESCO Intangible Cultural Heritage. Three voices weave together in complex harmonies that are unlike anything in Western music. It's one of the oldest musical traditions in the world.", "de": "Der georgische polyphone Gesang ist UNESCO-Weltkulturerbe. Drei Stimmen verweben sich zu komplexen Harmonien, die in der westlichen Musik einzigartig sind. Es ist eine der ältesten Musiktraditionen der Welt." },
+    "imageAsset": "env_polyphonic_singing"
+  },
+  "completionMessage": { "en": "You've mastered დ — four letters strong!", "de": "Du beherrschst დ — vier Buchstaben geschafft!" },
+  "gardenReward": { "id": "garden_doni_sprout", "label": "დ — doni", "asset": "garden_alpha_04_doni_sprout" }
+}

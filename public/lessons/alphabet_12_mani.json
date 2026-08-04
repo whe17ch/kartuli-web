@@ -1,0 +1,57 @@
+{
+  "id": "alphabet_12_mani",
+  "title": { "en": "Twelfth Letter: მ", "de": "Zwölfter Buchstabe: მ" },
+  "supportedSourceLanguages": ["en", "de"],
+  "targetLanguage": "ka",
+  "estimatedMinutes": 4,
+  "progressSteps": 6,
+  "letter": {
+    "glyph": "მ",
+    "name": "mani",
+    "ipa": "m",
+    "transliteration": "m",
+    "phonetic_en": "m as in moon",
+    "phonetic_de": "m wie in Mond",
+    "mnemonic": { "en": "მ has two humps like mountain peaks — m for mountain!", "de": "მ hat zwei Hügel wie Berggipfel — m wie Mountain!" }
+  },
+  "exercises": [
+    {
+      "id": "mani_intro", "type": "introduction",
+      "prompt": { "en": "Meet the letter მ", "de": "Lerne den Buchstaben მ kennen" },
+      "answer": "მ", "audioAsset": "vox_alpha_12_mani_natural", "imageAsset": "alpha_12_mani_display",
+      "hint": { "en": "Say m like in moon.", "de": "Sag m wie in Mond." },
+      "successFeedback": { "en": "This is mani.", "de": "Das ist mani." },
+      "retryFeedback": { "en": "Listen once more.", "de": "Hör noch einmal zu." }
+    },
+    {
+      "id": "mani_trace", "type": "tracing",
+      "prompt": { "en": "Trace the letter", "de": "Zeichne den Buchstaben nach" },
+      "answer": "მ", "imageAsset": "alpha_12_mani_stroke_guide", "strokePathAsset": "alpha_12_mani_stroke_path",
+      "hint": { "en": "Two rounded humps connected at the base.", "de": "Zwei abgerundete Hügel, unten verbunden." },
+      "successFeedback": { "en": "Perfect mountains!", "de": "Perfekte Berge!" },
+      "retryFeedback": { "en": "Try again, keep both humps even.", "de": "Versuch es nochmal, halte beide Hügel gleichmäßig." }
+    },
+    {
+      "id": "mani_listen_choose", "type": "multipleChoice",
+      "prompt": { "en": "Which letter did you hear?", "de": "Welchen Buchstaben hast du gehört?" },
+      "answer": "მ", "alternatives": ["მ", "ლ", "ბ"], "audioAsset": "vox_alpha_12_mani_natural",
+      "successFeedback": { "en": "Correct — მ.", "de": "Richtig — მ." },
+      "retryFeedback": { "en": "That was მ. A humming m sound.", "de": "Das war მ. Ein summender m-Laut." }
+    },
+    {
+      "id": "mani_speak", "type": "speaking",
+      "prompt": { "en": "Say მ", "de": "Sprich მ" },
+      "answer": "მ", "audioAsset": "vox_alpha_12_mani_slow", "skipAllowed": true,
+      "hint": { "en": "Press your lips together and hum.", "de": "Drücke die Lippen zusammen und summe." },
+      "successFeedback": { "en": "Perfect hum!", "de": "Perfektes Summen!" },
+      "retryFeedback": { "en": "Try again — m as in moon.", "de": "Versuch es nochmal — m wie in Mond." }
+    }
+  ],
+  "culturalMoment": {
+    "title": { "en": "Churchkhela — Georgian candy", "de": "Tschurtschela — Georgische Süßigkeit" },
+    "body": { "en": "Churchkhela is often called the 'Georgian Snickers'. Walnuts or hazelnuts are threaded on a string and dipped in thickened grape juice, then hung to dry. This ancient energy snack was carried by warriors and travellers for centuries.", "de": "Tschurtschela wird oft als ‚georgischer Snickers' bezeichnet. Walnüsse oder Haselnüsse werden auf eine Schnur gefädelt und in eingedickten Traubensaft getaucht, dann zum Trocknen aufgehängt. Dieser uralte Energiesnack wurde jahrhundertelang von Kriegern und Reisenden mitgeführt." },
+    "imageAsset": "env_churchkhela"
+  },
+  "completionMessage": { "en": "All 12 letters complete! მ crowns your collection! 🎉", "de": "Alle 12 Buchstaben geschafft! მ krönt deine Sammlung! 🎉" },
+  "gardenReward": { "id": "garden_mani_sprout", "label": "მ — mani", "asset": "garden_alpha_12_mani_sprout" }
+}
